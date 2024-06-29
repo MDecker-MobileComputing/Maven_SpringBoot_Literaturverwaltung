@@ -1,6 +1,5 @@
 package de.eldecker.dhbw.spring.literaturverwaltung.db;
 
-import static jakarta.persistence.GenerationType.AUTO;
 import static java.util.Arrays.asList;
 
 import java.util.HashSet;
@@ -10,35 +9,35 @@ import java.util.Set;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 
 /**
  * Entity-Klasse für wiss. Themen, denen Publikationen zugeordnet werden. 
  */
 @Entity
-@Table( name = "THEMA" )
-public class ThemaEntity {
+@Table(name = "THEMA")
+public class ThemaEntity extends AbstractPersistable<Long> {
 
-    /** Primärschlüssel. */
-    @Id
-    @GeneratedValue( strategy = AUTO )
-    private Long id;
-    
     /** Wissenschaftliches Thema, z.B. "Workflow Management" */ 
     private String thema;
     
     /**
-     * Schlagwörter für dieses Thema.
+     * Schlagwörter für dieses Thema; diese werden in der Tabelle 
+     * {@code SCHLAGWOERTER} abgelegt, welche die Fremdschlüsselspalte
+     * {@code THEMA_ID} hat.
      */
     @ElementCollection
     @CollectionTable( name = "schlagwoerter",
-                      joinColumns = @JoinColumn( name="thema_id" ) )
+                      joinColumns = @JoinColumn( name="thema_id") )
     private Set<SchlagwortEmbeddable> schlagwoerterSet = new HashSet<>();
     
+    /** Publikationen, die dieses Thema haben. */
+    @ManyToMany(mappedBy = "themen")
+    private Set<AbstractPublikationEntity> publikationen;
     
     /** Konstruktor für JPA */
     public ThemaEntity() {}
@@ -47,26 +46,20 @@ public class ThemaEntity {
      * Konstruktor, um skalare Attribute zu setzen.
      */
     public ThemaEntity( String thema ) {
-         
-         this.thema = thema;
-     }
+        
+        this.thema = thema;
+    }
     
     /**
      * Konstruktor um alle Non-ID-Attribute zu setzen. 
      */
     public ThemaEntity( String thema, SchlagwortEmbeddable... schlagwoerter ) {
-
-        this.thema = thema;
         
+        this.thema = thema;
         List<SchlagwortEmbeddable> schlagwortListe = asList( schlagwoerter ); 
-        this.schlagwoerterSet = new HashSet<>( schlagwortListe );
+        this.schlagwoerterSet.addAll( schlagwortListe );
     }
     
-    public Long getId() {
-        
-        return id;
-    }
-        
     public String getThema() {
         
         return thema;
@@ -92,13 +85,13 @@ public class ThemaEntity {
      */
     public void addSchlagwort( SchlagwortEmbeddable schlagwort ) {
         
-        schlagwoerterSet.add( schlagwort );        
+        schlagwoerterSet.add(schlagwort);        
     }
-    
     
     @Override
     public String toString() {
-            
-        return String.format( "Thema: \"{}\"", thema );
+        
+        return String.format( "Thema: \"%s\"", thema );
     }
+
 }
