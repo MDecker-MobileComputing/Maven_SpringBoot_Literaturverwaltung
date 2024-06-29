@@ -16,7 +16,8 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
 
@@ -43,12 +44,14 @@ public abstract class AbstractPublikationEntity {
     @GeneratedValue( strategy = AUTO )
     protected Long id;
         
+    /** Titel des Buchs oder Artikels. */
     @Size( min = 5, 
            message = "Der Titel muss mindestens 5 Zeichen lang sein" )
     private String titel;
-            
-    @Pattern( regexp = "\\d{4}", 
-              message = "Jahreszahl muss 4-stellig sein" )
+
+    /** Jahreszahl muss 4-stellig sein. */
+    @Min( 1000 )
+    @Max( 9999 )
     private int jahr;
     
     /** Liste der Autoren der Publikation. */

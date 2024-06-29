@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import de.eldecker.dhbw.spring.literaturverwaltung.db.AbstractPublikationEntity;
+import de.eldecker.dhbw.spring.literaturverwaltung.db.BuchPublikation;
 import de.eldecker.dhbw.spring.literaturverwaltung.db.SchlagwortEmbeddable;
 import de.eldecker.dhbw.spring.literaturverwaltung.db.ThemaEntity;
 import de.eldecker.dhbw.spring.literaturverwaltung.db.repos.PublikationenRepo;
@@ -50,14 +51,16 @@ public class DemoDatenImportApplicationRunner implements ApplicationRunner {
             
             LOG.info( "Keine Themen in Datenbank gefunden, lade jetzt Demo-Content." );
                          
-            ThemaEntity themaBPM    = erzeugeThemaGeschaeftsProzessManagement();
-            ThemaEntity themaSpring = erzeugeThemaSpringBoot();
+            ThemaEntity themaBPM        = erzeugeThemaGeschaeftsProzessManagement();
+            ThemaEntity themaSpringBoot = erzeugeThemaSpringBoot();
                                     
+            erzeugePublikationBuch1( themaSpringBoot );
+            
             final long themenAnzahlNeu = _themenRepo.count();
             LOG.info( "Demo-Daten geladen, es sind jetzt {} Themen in der Datenbank.", themenAnzahlNeu );
         }
     }
-    
+            
     
     /**
      * Thema "Geschäftsprozesse" mit einigen Schlagwörtern in DB anlegen.
@@ -88,6 +91,24 @@ public class DemoDatenImportApplicationRunner implements ApplicationRunner {
         _themenRepo.save( thema );
         
         return thema;
+    }
+    
+    /**
+     * Eintrag über
+     * <a href="https://www.amazon.de/dp/3836290499">dieses Buch</a>
+     * über <i>Spring Boot</i> erzeugen.
+     */
+    private void erzeugePublikationBuch1( ThemaEntity springBootThema ) {
+        
+        BuchPublikation buch = 
+                new BuchPublikation( "Spring Boot 3 und Spring Framework 6", 2023,
+                                     "3836290499", "978-3836290494",
+                                     "Rheinwerk Computing", "Bonn",
+                                     "Christian Ullenboom" );
+
+        buch.addThema( springBootThema );
+        
+        _publikationenRepo.save( buch );
     }
     
 }
