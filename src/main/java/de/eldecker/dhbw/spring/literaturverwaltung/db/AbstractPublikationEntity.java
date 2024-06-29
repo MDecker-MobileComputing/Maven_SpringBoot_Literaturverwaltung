@@ -16,6 +16,7 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OrderBy;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
@@ -57,11 +58,12 @@ public abstract class AbstractPublikationEntity {
     /** Liste der Autoren der Publikation. */
     private List<String> autoren = new ArrayList<>( 5 );
     
-    /** Themen für dieses Buch, M:N-Beziehung. */
+    /** Themen für dieses Buch, N:M-Beziehung. */
     @ManyToMany 
     @JoinTable( name               = "publikation_zu_thema",      
                 joinColumns        = @JoinColumn( name = "publikation_id" ),
                 inverseJoinColumns = @JoinColumn( name = "thema_id"       ) )
+    @OrderBy("thema ASC")
     private Set<ThemaEntity> themen = new HashSet<>();    
     
         
@@ -76,8 +78,9 @@ public abstract class AbstractPublikationEntity {
      */
     public AbstractPublikationEntity( String titel, int jahr, String... autoren ) {
                 
-        this.titel   = titel;
-        this.jahr    = jahr;
+        this.titel = titel;
+        this.jahr  = jahr;
+        
         this.autoren = List.of( autoren );
     }
     

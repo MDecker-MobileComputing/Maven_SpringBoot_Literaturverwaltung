@@ -24,6 +24,14 @@
     <p th:text="${publikation}"></p>
     <br><br>
 
+    <p>
+        <span class="fett">Themen: </span>
+        <span th:each="thema : ${publikation.themen}">
+            <span th:text="${thema}"></span>
+            &nbsp;
+    </p>
+    <br><br>    
+
     <a href="/app/liste-alle-publikationen">Zurück zur Liste aller Publikationen</a>
 
 </body>

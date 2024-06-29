@@ -95,7 +95,7 @@ public class JournalArtikelEntity extends AbstractPublikationEntity {
     public String toString() {
         
         return super.toString() + 
-               ", Zeitschrift: " + zeitschrift + " (Vol. " + jahrgang + ", No " + ausgabe + ")";               
+               ", Zeitschrift: " + zeitschrift + " (Vol. " + jahrgang + ", No " + ausgabe + ").";               
     }    
     
 }

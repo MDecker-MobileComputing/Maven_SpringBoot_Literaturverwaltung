@@ -88,10 +88,15 @@ public class ThemaEntity extends AbstractPersistable<Long> {
         schlagwoerterSet.add(schlagwort);        
     }
     
+    /**
+     * Methode gibt nur Thema zurück.
+     * 
+     * @return Wert von {@link #getThema()}
+     */
     @Override
     public String toString() {
         
-        return String.format( "Thema: \"%s\"", thema );
+        return getThema();
     }
 
 }

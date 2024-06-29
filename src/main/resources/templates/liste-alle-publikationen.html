@@ -25,7 +25,9 @@
         <p th:if="${publikation instanceof T(de.eldecker.dhbw.spring.literaturverwaltung.db.JournalArtikelEntity)}">
             <span class="fett">Journalartikel: </span>
         </p>
-        <span th:text="${publikation}"></span>.
+        <span th:text="${publikation}"></span>
+        <br>
+        <a th:href="'/app/publikation/' + ${publikation.getId}">Detailansicht</a>
         <br><br>
 
     </div>
