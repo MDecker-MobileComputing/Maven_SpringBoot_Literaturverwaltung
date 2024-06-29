@@ -15,14 +15,14 @@ import jakarta.validation.constraints.Size;
  */
 @Entity
 @DiscriminatorValue( "Buch" )
-public class BuchPublikation extends AbstractPublikationEntity {
+public class BuchEntity extends AbstractPublikationEntity {
 
     /**
      * International Standard Book Number, ISBN-10, z.B. {@code 9780262033848};
      * besteht aus 10 Ziffern, kann keine Bindestriche enthalten.
      */
     @Pattern( regexp = "[0-9]{10}",
-            message = "Ungültige ISBN-10" )
+              message = "Ungültige ISBN-10" )
     private String isbn10;
 
     /**
@@ -30,7 +30,7 @@ public class BuchPublikation extends AbstractPublikationEntity {
      * besteht aus 13 Ziffern, kann Bindestriche enthalten.
      */
     @Pattern( regexp = "[\\-0-9]{13,17}",
-            message = "Ungültige ISBN-13" )    
+              message = "Ungültige ISBN-13" )    
     private String isbn13;
         
     /** Name des Verlags, z.B. "Rheinwerk Computing". */
@@ -46,15 +46,15 @@ public class BuchPublikation extends AbstractPublikationEntity {
     /**
      * Default-Konstruktor für JPA.
      */
-    public BuchPublikation() {}        
+    public BuchEntity() {}        
 
     /**
      * Konstruktor um alle Attribute zu setzen (auch die geerbten). 
      */
-    public BuchPublikation( String titel, int jahr,
-                            String isbn10, String isbn13, 
-                            String verlag, String verlagOrt,
-                            String... autoren) {
+    public BuchEntity( String titel, int jahr,
+                       String isbn10, String isbn13, 
+                       String verlag, String verlagOrt,
+                       String... autoren) {
         
         super( titel, jahr, autoren );
         

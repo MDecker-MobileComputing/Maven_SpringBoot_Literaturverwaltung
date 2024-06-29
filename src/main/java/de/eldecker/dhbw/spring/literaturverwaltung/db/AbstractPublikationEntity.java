@@ -57,10 +57,11 @@ public abstract class AbstractPublikationEntity {
     /** Liste der Autoren der Publikation. */
     private List<String> autoren = new ArrayList<>( 5 );
     
+    /** Themen für dieses Buch, M:N-Beziehung. */
     @ManyToMany 
     @JoinTable( name               = "publikation_zu_thema",      
-                joinColumns        = @JoinColumn(name = "publikation_id"),
-                inverseJoinColumns = @JoinColumn(name = "thema_id" ) )
+                joinColumns        = @JoinColumn( name = "publikation_id" ),
+                inverseJoinColumns = @JoinColumn( name = "thema_id"       ) )
     private Set<ThemaEntity> themen = new HashSet<>();    
     
         
