@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import de.eldecker.dhbw.spring.literaturverwaltung.db.AbstractPublikationEntity;
 import de.eldecker.dhbw.spring.literaturverwaltung.db.repos.PublikationenRepo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +36,7 @@ public class ThymeleafController {
      * 
      * @param model Objekt für Platzhalterwerte in Template
      * 
-     * @return Name der Template-Datei.
+     * @return Name der Template-Datei {@code liste-alle-publikationen.html}
      */
     @GetMapping( "/liste-alle-publikationen" )
     public String allePublikationen( Model model ) {
@@ -45,4 +47,36 @@ public class ThymeleafController {
         
         return "liste-alle-publikationen";
     }
+    
+    
+    /**
+     * Seite mit Detailansicht anzeigen.
+     * 
+     * @param id Pfadparameter mit ID der Publikation
+     * 
+     * @param model Objekt für Platzhalterwerte in Template
+     * 
+     * @return Name der Template-Datei {@code detail-publikation.html}
+     */
+    @GetMapping( "/publikation/{id}" )
+    public String allePublikationen( @PathVariable("id") Long id,
+                                     Model model ) {
+        
+        final Optional<AbstractPublikationEntity> publikationOptional = _publikationenRepo.findById( id );
+        if ( publikationOptional.isEmpty() ) {
+            
+            String fehlertext = String.format( "Keine Publikation mit ID=%d gefunden.", id );
+            
+            LOG.warn( fehlertext );
+            
+            model.addAttribute( "fehlermeldung", fehlertext );
+            return "fehlerseite";
+        }
+        
+        AbstractPublikationEntity publikation = publikationOptional.get();
+        model.addAttribute( "publikation", publikation );
+        
+        return "detail-publikation";
+    }
+    
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Detailansicht einer Publikation</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/literaturverwaltung.css">
+</head>
+<body>
+
+    <h1>Detailansicht einer Publikation</h1>
+
+    <p>
+        <span class="fett">Typ der Publikation: </span>
+        <span th:if="${publikation instanceof T(de.eldecker.dhbw.spring.literaturverwaltung.db.BuchEntity)}">
+            Buch
+        </span>    
+        <span th:if="${publikation instanceof T(de.eldecker.dhbw.spring.literaturverwaltung.db.JournalArtikelEntity)}">
+            Journal
+        </span>    
+    </p>
+    <br><br>
+
+    <p th:text="${publikation}"></p>
+    <br><br>
+
+    <a href="/app/liste-alle-publikationen">Zurück zur Liste aller Publikationen</a>
+
+</body>
