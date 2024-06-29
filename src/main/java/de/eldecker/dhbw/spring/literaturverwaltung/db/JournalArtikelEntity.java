@@ -94,7 +94,7 @@ public class JournalArtikelEntity extends AbstractPublikationEntity {
     @Override
     public String toString() {
         
-        return "Zeitschriftenartikel: " + super.toString() + 
+        return super.toString() + 
                ", Zeitschrift: " + zeitschrift + " (Vol. " + jahrgang + ", No " + ausgabe + ")";               
     }    
     

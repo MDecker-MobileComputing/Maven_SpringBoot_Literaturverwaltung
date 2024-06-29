@@ -152,7 +152,7 @@ public abstract class AbstractPublikationEntity {
     @Override
     public String toString() {
         
-        return titel + "(" + jahr + ")";
+        return autoren + ": " + titel + " (" + jahr + ")";
     }
     
 }

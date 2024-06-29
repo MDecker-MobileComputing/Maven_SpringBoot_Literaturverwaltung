@@ -12,5 +12,10 @@ import de.eldecker.dhbw.spring.literaturverwaltung.db.AbstractPublikationEntity;
  */
 public interface PublikationenRepo extends JpaRepository<AbstractPublikationEntity, Long> {
 
+    /**
+     * Liste aller Publikationen (verschiedene Typen).
+     *  
+     * @return Alle Publikationen, sortiert nach aufsteigender Jahreszahl
+     */
     List<AbstractPublikationEntity> findAllByOrderByJahrAsc();
 }

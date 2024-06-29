@@ -116,7 +116,7 @@ public class BuchEntity extends AbstractPublikationEntity {
     @Override
     public String toString() {
         
-        return "Buch: " + super.toString() + ", Verlag: " + verlag + " (" + verlagOrt + ")";               
+        return super.toString() + ", Verlag: " + verlag + " (" + verlagOrt + ")";               
     }
     
 }

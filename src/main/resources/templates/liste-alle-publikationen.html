@@ -17,4 +17,17 @@
     <br><br>
 
 
+    <div th:each="publikation : ${liste}">
+
+        <p th:if="${publikation instanceof T(de.eldecker.dhbw.spring.literaturverwaltung.db.BuchEntity)}">
+            <span class="fett">Buch: </span>
+        </p>
+        <p th:if="${publikation instanceof T(de.eldecker.dhbw.spring.literaturverwaltung.db.JournalArtikelEntity)}">
+            <span class="fett">Journalartikel: </span>
+        </p>
+        <span th:text="${publikation}"></span>.
+        <br><br>
+
+    </div>
+
 </body>
