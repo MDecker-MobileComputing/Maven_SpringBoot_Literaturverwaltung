@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Detailansicht eines Thema</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/literaturverwaltung.css">
+</head>
+<body>
+
+    <h1>
+        Thema:
+        <span th:text="${thema}"></span>
+    </h1>
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Deutscher Wert</th>
+                <th>Englischer Wert</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="schlagwort : ${schlagwoerter}">
+                <td th:text="${schlagwort.deutscherWert}"></td>
+                <td th:text="${schlagwort.englischerWert}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+
+    <a href="/app/liste-alle-publikationen">Zurück zur Liste aller Publikationen</a>
+
+</body>
