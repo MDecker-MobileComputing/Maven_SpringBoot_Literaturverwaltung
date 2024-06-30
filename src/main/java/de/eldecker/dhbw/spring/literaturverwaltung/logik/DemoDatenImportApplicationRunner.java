@@ -74,9 +74,9 @@ public class DemoDatenImportApplicationRunner implements ApplicationRunner {
      */
     private ThemaEntity erzeugeThemaGeschaeftsProzessManagement() {
 
-        SchlagwortEmbeddable sw1 = new SchlagwortEmbeddable( "Prozessmanagement"  , "Geschäftsprozess"  );
-        SchlagwortEmbeddable sw2 = new SchlagwortEmbeddable( "Prozessmodellierung", "Process Modelling" );
-        SchlagwortEmbeddable sw3 = new SchlagwortEmbeddable( "Workflow"           , "Workflow"          );
+        SchlagwortEmbeddable sw1 = new SchlagwortEmbeddable( "Prozessmanagement"  , "Process Management" );
+        SchlagwortEmbeddable sw2 = new SchlagwortEmbeddable( "Prozessmodellierung", "Process Modelling"  );
+        SchlagwortEmbeddable sw3 = new SchlagwortEmbeddable( "Geschäftsprozess"   , "Business Process"   );
 
         ThemaEntity thema = new ThemaEntity( "Geschäftsprozesse", sw1, sw2, sw3 );
         _themenRepo.save( thema );

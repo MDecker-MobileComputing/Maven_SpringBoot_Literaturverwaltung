@@ -27,3 +27,18 @@ td {
     font-family: monospace;
     width: 300px;
 }
+
+/* Regeln für Tabellen */
+table {
+    border-collapse: collapse;
+}
+tr {
+    border: 1px solid black;
+}
+td, th {
+    border: 1px solid black;
+    padding: 1em;
+}
+.textzentriert{
+    text-align: center;
+}

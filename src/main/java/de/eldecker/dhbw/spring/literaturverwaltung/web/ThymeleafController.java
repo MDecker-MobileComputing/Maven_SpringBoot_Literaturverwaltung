@@ -121,6 +121,13 @@ public class ThymeleafController {
     }
 
 
+    /**
+     * Seite mit allen Themen anzeigen.
+     * 
+     * @param model Objekt für Platzhalterwerte in Template
+     * 
+     * @return Name der Template-Datei {@code liste-alle-themen.html}
+     */
     @GetMapping( "/liste-alle-themen" )
     public String alleThemen( Model model ) {
 

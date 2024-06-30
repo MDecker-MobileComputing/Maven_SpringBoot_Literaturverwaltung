@@ -54,7 +54,7 @@ public class BuchEntity extends AbstractPublikationEntity {
     public BuchEntity( String titel, int jahr,
                        String isbn10, String isbn13, 
                        String verlag, String verlagOrt,
-                       String... autoren) {
+                       String... autoren ) {
         
         super( titel, jahr, autoren );
         

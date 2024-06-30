@@ -9,22 +9,21 @@
 <body>
 
     <h1>
-        Thema:
-        <span th:text="${thema}"></span>
+        Thema: <span th:text="${thema}"></span>        
     </h1>
-    <br><br>
 
+    <h2>Schlagwörter</h2>
     <table>
         <thead>
             <tr>
-                <th>Deutscher Wert</th>
-                <th>Englischer Wert</th>
+                <th>Deutsch</th>
+                <th>Englisch</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="schlagwort : ${schlagwoerter}">
-                <td th:text="${schlagwort.deutscherWert}"></td>
-                <td th:text="${schlagwort.englischerWert}"></td>
+            <tr th:each="schlagwort : ${thema.getSchlagwoerterSet()}">
+                <td th:text="${schlagwort.getDeutsch()}" ></td>
+                <td th:text="${schlagwort.getEnglisch()}"></td>
             </tr>
         </tbody>
     </table>
