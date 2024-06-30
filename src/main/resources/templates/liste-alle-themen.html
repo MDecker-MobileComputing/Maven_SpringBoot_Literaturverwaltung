@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Alle Themen</title>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../literaturverwaltung.css">
+</head>
+<body>
+
+    <h1>Alle Themen</h1>
+
+    <p>
+        <span class="fett">Anzahl der Themen: </span>
+        <span th:text="${liste.size()}"></span>
+    </p>
+    <br><br>
+
+
+    <div th:each="thema : ${liste}">
+
+        <a th:href="'/app/thema/' + ${thema.getId}"><span th:text="${thema}"></span></a>
+        <br><br>
+
+    </div>
+    <br><br>
+
+</body>

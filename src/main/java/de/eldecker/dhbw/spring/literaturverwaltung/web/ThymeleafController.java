@@ -120,4 +120,15 @@ public class ThymeleafController {
         return "detail-thema";
     }
 
+
+    @GetMapping( "/liste-alle-themen" )
+    public String alleThemen( Model model ) {
+
+        List<ThemaEntity> liste = _themenRepo.findAllByOrderByThema();
+
+        model.addAttribute( "liste", liste );
+
+        return "liste-alle-themen";
+    }
+
 }
