@@ -36,8 +36,9 @@ public class SchlagwortEmbeddable {
 
     
     /**
-     * Konstruktor, um {@code englisch} als Begriff für Englisch und auch Deutsch zu 
-     * setzen (wenn es kein passendes Deutsches Wort gibt, z.B. für "Debugger").
+     * Convenience Konstruktor, um {@code englisch} als Begriff für Englisch und  
+     * auch Deutsch zu setzen (wenn es kein passendes Deutsches Wort gibt, z.B. 
+     * für "Debugger").
      */
     public SchlagwortEmbeddable( String englisch ) {
         
@@ -74,6 +75,11 @@ public class SchlagwortEmbeddable {
         this.englisch = englisch;
     }
     
+    /**
+     * Methode gibt String-Repräsentation des Objekts zurück.
+     * 
+     * @return String mit deutschem und englischem Begriff
+     */
     @Override
     public String toString() {
         
