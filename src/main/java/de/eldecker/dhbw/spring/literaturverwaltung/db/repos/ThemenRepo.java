@@ -13,7 +13,7 @@ import java.util.List;
 public interface ThemenRepo extends JpaRepository<ThemaEntity, Long> {
 
     /**
-     * Liste aller Themen.
+     * Liste aller Themen zurückgeben.
      *  
      * @return Alle Themen, sortiert nach Thema.
      */

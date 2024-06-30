@@ -19,7 +19,11 @@
 
     <div th:each="thema : ${liste}">
 
-        <a th:href="'/app/thema/' + ${thema.getId}"><span th:text="${thema}"></span></a>
+        <span th:text="${thema}"></span>
+        [ <a th:href="'/app/thema/' + ${thema.getId}">Detailansicht</a> ]
+        &nbsp;
+        [ <a th:href="'/app/liste-publikationen-nach-thema/' + ${thema.getId}">Publikationen</a> ]
+
         <br><br>
 
     </div>

@@ -57,6 +57,16 @@ public class ThymeleafController {
     }
 
 
+    /**
+     * Liste aller Publikationen für ein bestimmtes Thema anzeigen.
+     * 
+     * @param model Objekt für Platzhalterwerte in Template
+     * 
+     * @param themaId ID des Themas
+     * 
+     * @return Name der Template-Datei {@code liste-publikationen-nach-thema.html}
+     *         oder {@code fehler.html} ohne Datei-Endung
+     */
     @GetMapping( "/liste-publikationen-nach-thema/{themaId}" )
     public String publikationenFuerThema( Model model, 
                                           @PathVariable("themaId") Long themaId ) {            
@@ -75,7 +85,7 @@ public class ThymeleafController {
         final ThemaEntity thema = themaOptional.get();                
         
         final List<AbstractPublikationEntity> publikationenListe = 
-                        _publikationenRepo.findByThemaId( thema.getId() );
+                        _publikationenRepo.findByThemenId( thema.getId() );
         
         model.addAttribute( "thema", thema              );
         model.addAttribute( "liste", publikationenListe );
@@ -92,6 +102,7 @@ public class ThymeleafController {
      * @param model Objekt für Platzhalterwerte in Template
      *
      * @return Name der Template-Datei {@code detail-publikation.html}
+     *         oder {@code fehlerseite.html} ohne Datei-Endung
      */
     @GetMapping( "/publikation/{id}" )
     public String detailsPublikation( @PathVariable("id") Long id,
@@ -124,6 +135,7 @@ public class ThymeleafController {
      * @param model Objekt für Platzhalterwerte in Template
      *
      * @return Name der Template-Datei {@code detail-thema.html}
+     *         oder {@code fehlerseite.html} ohne Datei-Endung
      */
     @GetMapping( "/thema/{id}" )
     public String detailsThema( @PathVariable("id") Long id,
