@@ -12,6 +12,9 @@
         Thema: <span th:text="${thema}"></span>        
     </h1>
 
+    <a th:href="'/app/liste-publikationen-nach-thema/' + ${thema.getId()}">Zugehörige Publikationen</a>
+    <br><br>
+
     <h2>Schlagwörter</h2>
     <table>
         <thead>

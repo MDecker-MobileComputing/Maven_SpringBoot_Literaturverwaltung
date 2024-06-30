@@ -40,7 +40,10 @@ import jakarta.validation.constraints.Size;
 @DiscriminatorColumn( name = "PublikationsTyp" )
 public abstract class AbstractPublikationEntity {
 
-    /** ID, muss Zugriffsmodifizierer {@code protected} haben. */
+    /** 
+     * ID, muss Zugriffsmodifizierer {@code protected} haben, damit 
+     * die ID von JPA auch für Unterklassen gesetzt werden kann. 
+     */
     @Id
     @GeneratedValue( strategy = AUTO )
     protected Long id;

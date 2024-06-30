@@ -12,6 +12,11 @@ import java.util.List;
  */
 public interface ThemenRepo extends JpaRepository<ThemaEntity, Long> {
 
+    /**
+     * Liste aller Themen.
+     *  
+     * @return Alle Themen, sortiert nach Thema.
+     */
     List<ThemaEntity> findAllByOrderByThema();
 
 }

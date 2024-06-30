@@ -57,6 +57,33 @@ public class ThymeleafController {
     }
 
 
+    @GetMapping( "/liste-publikationen-nach-thema/{themaId}" )
+    public String publikationenFuerThema( Model model, 
+                                          @PathVariable("themaId") Long themaId ) {            
+        
+        final Optional<ThemaEntity> themaOptional = _themenRepo.findById( themaId );
+        if ( themaOptional.isEmpty() ) {
+            
+            String fehlertext = format( "Keine Thema mit ID=%d gefunden.", themaId );
+
+            LOG.warn( fehlertext );
+
+            model.addAttribute( "fehlermeldung", fehlertext );
+            return "fehlerseite";            
+        }
+                        
+        final ThemaEntity thema = themaOptional.get();                
+        
+        final List<AbstractPublikationEntity> publikationenListe = 
+                        _publikationenRepo.findByThemaId( thema.getId() );
+        
+        model.addAttribute( "thema", thema              );
+        model.addAttribute( "liste", publikationenListe );
+        
+        return "liste-publikationen-nach-thema";
+    }
+    
+    
     /**
      * Seite mit Detailansicht anzeigen.
      *

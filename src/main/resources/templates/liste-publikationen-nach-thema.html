@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Alle Publikationen</title>
+    <title>Publikationen für ein bestimmtes Thema</title>
     <meta charset="utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../literaturverwaltung.css">
+    <link rel="stylesheet" type="text/css" href="/literaturverwaltung.css">
 </head>
 <body>
 
-    <h1>Alle Publikationen</h1>
+    <h1>Publikationen für Thema 
+        "<span th:text="${thema}"></span>"
+    </h1>
 
     <p>
         <span class="fett">Anzahl der Publikationen: </span>
         <span th:text="${liste.size()}"></span>
     </p>
-    <br><br>
-
+    <br><br>    
 
     <div th:each="publikation : ${liste}">
 
@@ -25,10 +26,16 @@
         <p th:if="${publikation instanceof T(de.eldecker.dhbw.spring.literaturverwaltung.db.JournalArtikelEntity)}">
             <span class="fett">Journalartikel: </span>
         </p>
-        <span th:text="${publikation}"></span>
+        <span th:text="${publikation}"></span>        
         [ <a th:href="'/app/publikation/' + ${publikation.getId}">Detailansicht</a> ]
-        <br><br>
+        <br><br>        
+    </div>    
+    <br><br>
 
-    </div>
+    <a href="/app/liste-alle-themen">Liste aller Themen</a>
+    <br><br>
+
+    <a href="/app/liste-alle-publikationen">Zurück zur Liste aller Publikationen</a>
+    <br><br>
 
 </body>
