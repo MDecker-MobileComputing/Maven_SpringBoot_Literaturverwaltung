@@ -16,7 +16,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 
 /**
- * Entity-Klasse für wiss. Themen, denen Publikationen zugeordnet werden.
+ * Entity-Klasse für wissenschaftliche Themen, denen Publikationen zugeordnet werden.
  */
 @Entity
 @Table(name = "THEMA")

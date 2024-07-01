@@ -7,6 +7,9 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
 
+/**
+ * Entity-Klasse für einen Zeitschriftenartikel. 
+ */
 @Entity
 @DiscriminatorValue( "JournalArtikel" )
 public class JournalArtikelEntity extends AbstractPublikationEntity {

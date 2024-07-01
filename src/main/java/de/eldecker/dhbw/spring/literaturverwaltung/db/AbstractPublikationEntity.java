@@ -23,9 +23,9 @@ import jakarta.validation.constraints.Size;
 
 
 /**
- * Abstrakte Publikation: Hat Autor(en), Titel und Jahreszahl der Veröffentlichung.    
- * Diese Klasse ist als Oberklasse für Vererbung, es kann aber keine Instanzen von
- * ihr geben.
+ * Abstrakte Oberklasse für Publikationen: Hat Autor(en), Titel und Jahreszahl der     
+ * Veröffentlichung. Diese Klasse ist als Oberklasse für Vererbung, es kann aber 
+ * keine Instanzen von ihr geben.
  * <br><br>
  * 
  * Für die Abbildung der Vererbungsbeziehung wurde die Strategie {@code SINGLE_TABLE}
