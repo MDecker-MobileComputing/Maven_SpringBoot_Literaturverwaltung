@@ -49,7 +49,7 @@ public abstract class AbstractPublikationEntity {
     protected Long id;
         
     /** Titel des Buchs oder Artikels. */
-    @Size( min = 5, 
+    @Size( min     = 5, 
            message = "Der Titel muss mindestens 5 Zeichen lang sein" )
     private String titel;
 
@@ -66,7 +66,7 @@ public abstract class AbstractPublikationEntity {
     @JoinTable( name               = "publikation_zu_thema",      
                 joinColumns        = @JoinColumn( name = "publikation_id" ),
                 inverseJoinColumns = @JoinColumn( name = "thema_id"       ) )
-    @OrderBy("thema ASC")
+    @OrderBy( "thema ASC" )
     private Set<ThemaEntity> themen = new HashSet<>();    
     
         

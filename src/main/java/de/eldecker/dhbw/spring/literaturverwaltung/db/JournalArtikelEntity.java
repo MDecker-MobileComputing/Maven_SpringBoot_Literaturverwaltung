@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Size;
 @DiscriminatorValue( "JournalArtikel" )
 public class JournalArtikelEntity extends AbstractPublikationEntity {
 
-    @Size( min = 5, 
+    @Size( min     = 5, 
            message = "Zeitschriftennamen muss mindestens 5 Zeichen haben" ) 
     private String zeitschrift;
     

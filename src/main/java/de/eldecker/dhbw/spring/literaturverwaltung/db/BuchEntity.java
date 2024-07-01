@@ -21,7 +21,7 @@ public class BuchEntity extends AbstractPublikationEntity {
      * International Standard Book Number, ISBN-10, z.B. {@code 9780262033848};
      * besteht aus 10 Ziffern, kann keine Bindestriche enthalten.
      */
-    @Pattern( regexp = "[0-9]{10}",
+    @Pattern( regexp  = "[0-9]{10}",
               message = "Ungültige ISBN-10" )
     private String isbn10;
 
@@ -29,19 +29,20 @@ public class BuchEntity extends AbstractPublikationEntity {
      * International Standard Book Number, ISBN-13, z.B. {@code 978-0262033848};
      * besteht aus 13 Ziffern, kann Bindestriche enthalten.
      */
-    @Pattern( regexp = "[\\-0-9]{13,17}",
+    @Pattern( regexp  = "[\\-0-9]{13,17}",
               message = "Ungültige ISBN-13" )    
     private String isbn13;
         
     /** Name des Verlags, z.B. "Rheinwerk Computing". */
-    @Size( min = 3, 
+    @Size( min     = 3, 
            message = "Der Verlagsname muss mindestens drei Zeichen haben" )
     private String verlag;
 
     /** Ort des Verlags; Achtung: manche Verlage haben mehrere Verlagsorte. */
-    @Size( min = 3, 
+    @Size( min     = 3, 
            message = "Der Verlagsort muss mindestens drei Zeichen haben" )   
     private String verlagOrt;
+    
     
     /**
      * Default-Konstruktor für JPA.
