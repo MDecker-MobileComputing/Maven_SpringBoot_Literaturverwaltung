@@ -74,11 +74,10 @@ public class ThymeleafController {
         final Optional<ThemaEntity> themaOptional = _themenRepo.findById( themaId );
         if ( themaOptional.isEmpty() ) {
             
-            String fehlertext = format( "Keine Thema mit ID=%d gefunden.", themaId );
-
+            final String fehlertext = format( "Keine Thema mit ID=%d gefunden.", themaId );
             LOG.warn( fehlertext );
-
             model.addAttribute( "fehlermeldung", fehlertext );
+            
             return "fehlerseite";            
         }
                         

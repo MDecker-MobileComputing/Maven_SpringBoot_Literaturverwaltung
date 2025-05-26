@@ -18,7 +18,8 @@ public interface PublikationenRepo extends JpaRepository<AbstractPublikationEnti
      * @return Alle Publikationen, sortiert nach aufsteigender Jahreszahl
      */
     List<AbstractPublikationEntity> findAllByOrderByJahrAsc();
-    
+
+
     /**
      * Alle Publikationen zu einem bestimmten Thema zurückgeben.
      * 
@@ -27,5 +28,6 @@ public interface PublikationenRepo extends JpaRepository<AbstractPublikationEnti
      * @return Liste der Publikationen zu diesem Thema
      */
     List<AbstractPublikationEntity> findByThemenId( Long themaId );
+
 }
 

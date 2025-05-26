@@ -39,9 +39,11 @@ public class ThemaEntity extends AbstractPersistable<Long> {
     @ManyToMany(mappedBy = "themen")
     private Set<AbstractPublikationEntity> publikationen;
 
+    
     /** Konstruktor für JPA */
     public ThemaEntity() {}
 
+    
     /**
      * Konstruktor, um skalare Attribute zu setzen.
      */
@@ -50,6 +52,7 @@ public class ThemaEntity extends AbstractPersistable<Long> {
         this.thema = thema;
     }
 
+    
     /**
      * Konstruktor um alle Non-ID-Attribute zu setzen.
      */
@@ -60,21 +63,25 @@ public class ThemaEntity extends AbstractPersistable<Long> {
         this.schlagwoerterSet.addAll( schlagwortListe );
     }
 
+    
     public String getThema() {
 
         return thema;
     }
 
+    
     public void setThema( String thema ) {
 
         this.thema = thema;
     }
 
+    
     public Set<SchlagwortEmbeddable> getSchlagwoerterSet() {
 
         return schlagwoerterSet;
     }
 
+    
     public void setSchlagwoerterSet( Set<SchlagwortEmbeddable> schlagwoerterSet ) {
 
         this.schlagwoerterSet = schlagwoerterSet;

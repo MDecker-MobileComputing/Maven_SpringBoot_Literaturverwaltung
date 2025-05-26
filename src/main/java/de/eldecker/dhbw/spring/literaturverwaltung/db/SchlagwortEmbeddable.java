@@ -9,7 +9,7 @@ import jakarta.persistence.Embeddable;
  * z.B. "Geschäftsprozess" und "Business Process".
  * <br><br>
  * 
- * Erklärung von GH Actions zur Annotation {@code Embeddable}:
+ * Erklärung von <i>GH Copilot</i> zur Annotation {@code Embeddable}:
  * <i>"Embeddable entities are a feature of JPA (Java Persistence API) that allows 
  * you to define a class whose instances are stored as an intrinsic part of an owning  
  * entity. This is useful for representing composite values that don't have their  
