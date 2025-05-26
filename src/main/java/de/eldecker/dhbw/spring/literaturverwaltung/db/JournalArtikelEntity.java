@@ -34,6 +34,8 @@ public class JournalArtikelEntity extends AbstractPublikationEntity {
     @Min( 1 )
     private int seitennr;
     
+    private String verlag;
+    
     /**
      * Default-Konstruktor für JPA.
      */
