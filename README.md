@@ -8,7 +8,7 @@ Mit dieser Anwendung werden die folgende Features von *Spring Data JPA* demonstr
 * Entity-Klassen mit Vererbungsbeziehung (Single Table), siehe 
   [Klasse `AbstractPublikationEntity`](src/main/java/de/eldecker/dhbw/spring/literaturverwaltung/db/AbstractPublikationEntity.java) als Oberklasse für zwei konkrete Entity-Klassen.
 
-* Verwendung von `AbstractPersistable` also Oberklasse für eine Entity-Klasse, siehe
+* Verwendung von `AbstractPersistable` als Oberklasse für eine Entity-Klasse, siehe
   [Klasse `ThemaEntity`](src/main/java/de/eldecker/dhbw/spring/literaturverwaltung/db/ThemaEntity.java).
 
 * *Embeddable Klasse*, siehe [Klasse `SchlagwortEmbeddable`](src/main/java/de/eldecker/dhbw/spring/literaturverwaltung/db/SchlagwortEmbeddable.java).
