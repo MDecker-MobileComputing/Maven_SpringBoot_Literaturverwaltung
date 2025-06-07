@@ -183,6 +183,7 @@ public class DemoDatenImportApplicationRunner implements ApplicationRunner {
         _publikationenRepo.save( artikel );
     }
 
+
     /**
      * Eintrag für
      * <a href="https://ieeexplore.ieee.org/abstract/document/7030212">diesen Zeitschriftenartikel</a>.
