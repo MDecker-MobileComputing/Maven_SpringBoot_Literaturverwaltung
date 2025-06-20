@@ -18,6 +18,7 @@
 
     <name>Literaturverwaltung</name>
     <description>Literaturverwaltung als Demo für Vererbung mit JPA</description>
+    <inceptionYear>2025</inceptionYear>
 
     <properties>
         <java.version>21</java.version>
