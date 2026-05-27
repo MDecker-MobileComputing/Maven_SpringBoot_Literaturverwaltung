@@ -49,7 +49,7 @@ public class ThymeleafController {
     @GetMapping( "/liste-alle-publikationen" )
     public String allePublikationen( Model model ) {
 
-        List<AbstractPublikationEntity> liste = _publikationenRepo.findAllByOrderByJahrAsc();
+        final List<AbstractPublikationEntity> liste = _publikationenRepo.findAllByOrderByJahrAsc();
 
         model.addAttribute( "liste", liste );
 
@@ -111,7 +111,7 @@ public class ThymeleafController {
                                                     _publikationenRepo.findById( id );
         if ( publikationOptional.isEmpty() ) {
 
-            String fehlertext = format( "Keine Publikation mit ID=%d gefunden.", id );
+            final String fehlertext = format( "Keine Publikation mit ID=%d gefunden.", id );
 
             LOG.warn( fehlertext );
 
